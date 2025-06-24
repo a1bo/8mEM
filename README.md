@@ -20,6 +20,21 @@ This repository contains a simple Shopware plugin example named **TeamPlugin**. 
 
    The default password is `dockware`.
 
+   You can also work on the container straight from
+   Visual Studio Code using the **Remote - SSH** extension.
+   Add an entry to your local `~/.ssh/config` like:
+
+   ```
+   Host dockware
+       HostName localhost
+       User root
+       Port 22
+   ```
+
+   Then choose "Remote-SSH: Connect to Host..." and pick `dockware`
+   from the command palette. This opens the Shopware files inside
+   the container so you can edit the plugin sources directly.
+
 3. Place the `TeamPlugin` folder inside the `custom/plugins/` directory of the Shopware installation and install it via the administration or CLI.
 
 4. Compile the administration assets:
