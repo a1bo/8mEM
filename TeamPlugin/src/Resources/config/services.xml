@@ -4,5 +4,6 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
         <service id="TeamPlugin\Core\Content\Employee\EmployeeDefinition" />
+        <service id="TeamPlugin\Migration\Migration1682235151EmployeeTable" />
     </services>
 </container>
