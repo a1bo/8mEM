@@ -1,6 +1,6 @@
 # 8mEM
 
-This repository contains a simple Shopware plugin example named **TeamPlugin**. It provides a skeleton to manage employees in the Shopware administration and exposes a CMS block/element for the storefront.
+This repository contains a simple Shopware plugin example named **TeamPlugin**. It provides a skeleton to manage employees in the Shopware administration and exposes a CMS block/element for the storefront. The plugin includes a basic employee list module and a CMS element that lets you select multiple employees for a page.
 
 ## Usage
 
