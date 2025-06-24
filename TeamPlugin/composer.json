@@ -1,0 +1,20 @@
+{
+  "name": "custom/team-plugin",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "require": {
+    "shopware/core": "*"
+  },
+  "extra": {
+    "shopware-plugin-class": "TeamPlugin\\TeamPlugin",
+    "label": {
+      "en-GB": "Team Plugin",
+      "de-DE": "Team Plugin"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "TeamPlugin\\": "src/"
+    }
+  }
+}
