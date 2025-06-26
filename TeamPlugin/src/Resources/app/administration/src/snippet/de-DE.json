@@ -1,0 +1,32 @@
+{
+    "team-plugin": {
+        "list": {
+            "title": "Mitarbeiter",
+            "buttonAddEmployee": "Mitarbeiter hinzufügen",
+            "columnName": "Name",
+            "columnPosition": "Position",
+            "contextMenuEdit": "Bearbeiten",
+            "contextMenuDelete": "Löschen"
+        },
+        "detail": {
+            "titleCreate": "Neuer Mitarbeiter",
+            "buttonCancel": "Abbrechen",
+            "buttonSave": "Speichern",
+            "cardTitleGeneral": "Allgemein",
+            "labelName": "Name",
+            "placeholderName": "Namen eingeben...",
+            "labelPosition": "Position",
+            "placeholderPosition": "Position eingeben...",
+            "labelDescription": "Beschreibung",
+            "placeholderDescription": "Beschreibung eingeben...",
+            "cardTitleImages": "Bilder",
+            "labelBackgroundImage": "Hintergrundbild",
+            "labelPersonImage": "Personenbild",
+"errorTitle": "Fehler"
+        },
+        "cms": {
+            "labelEmployees": "Mitarbeiter",
+            "placeholderEmployees": "Mitarbeiter auswählen..."
+        }
+    }
+}
