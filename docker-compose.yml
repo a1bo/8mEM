@@ -1,16 +1,15 @@
-version: "3.8"
 services:
   shop:
     image: dockware/dev:latest
     ports:
       - "80:80"
-      - "3306:3306"
-      - "22:22"
+      - "3307:3306"
     environment:
       - APP_ENV=dev
     volumes:
       - shopware_db:/var/lib/mysql
       - shopware_files:/var/www/html
+      - ./TeamPlugin:/var/www/html/custom/plugins/TeamPlugin
 volumes:
   shopware_db:
   shopware_files:

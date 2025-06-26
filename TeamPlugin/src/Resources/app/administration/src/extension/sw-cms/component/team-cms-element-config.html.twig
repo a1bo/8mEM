@@ -1,0 +1,10 @@
+{% block cms_element_team_element_config %}
+    <div class="cms-element-team-element-config">
+        <sw-entity-multi-select
+            v-model="element.config.employees.value"
+            label="Employees"
+            entity="team_employee"
+            @change="onEmployeesChange">
+        </sw-entity-multi-select>
+    </div>
+{% endblock %}

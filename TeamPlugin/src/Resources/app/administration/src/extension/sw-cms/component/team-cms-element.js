@@ -22,8 +22,16 @@ Shopware.Component.register('team-cms-element', {
     },
     methods: {
         loadEmployees() {
+            if (!this.element.config.employees.value || this.element.config.employees.value.length === 0) {
+                this.employees = [];
+                return;
+            }
+
             const repository = this.repositoryFactory.create('team_employee');
-            repository.search(new Shopware.Data.Criteria(), Shopware.Context.api).then((result) => {
+            const criteria = new Shopware.Data.Criteria();
+            criteria.setIds(this.element.config.employees.value);
+
+            repository.search(criteria, Shopware.Context.api).then((result) => {
                 this.employees = result;
             });
         }

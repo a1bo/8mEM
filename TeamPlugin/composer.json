@@ -2,6 +2,7 @@
   "name": "custom/team-plugin",
   "type": "shopware-platform-plugin",
   "license": "MIT",
+  "description": "A plugin to manage team members.",
   "require": {
     "shopware/core": "*"
   },

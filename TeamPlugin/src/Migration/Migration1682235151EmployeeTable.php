@@ -20,8 +20,8 @@ class Migration1682235151EmployeeTable extends MigrationStep
                 `name` VARCHAR(255) NOT NULL,
                 `position` VARCHAR(255) NOT NULL,
                 `description` LONGTEXT NULL,
-                `background_image` LONGBLOB NULL,
-                `person_image` LONGBLOB NULL,
+                `background_image_id` BINARY(16) NULL,
+                `person_image_id` BINARY(16) NULL,
                 `created_at` DATETIME(3) NOT NULL,
                 `updated_at` DATETIME(3) NULL,
                 PRIMARY KEY (`id`)

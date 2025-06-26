@@ -12,20 +12,18 @@ class TeamPlugin extends Plugin
     public function install(InstallContext $installContext): void
     {
         parent::install($installContext);
-        $this->updateDatabase($installContext->getContext());
     }
 
     public function update(UpdateContext $updateContext): void
     {
         parent::update($updateContext);
-        $this->updateDatabase($updateContext->getContext());
     }
 
     public function uninstall(UninstallContext $uninstallContext): void
     {
         parent::uninstall($uninstallContext);
         if (!$uninstallContext->keepUserData()) {
-            $this->updateDatabase($uninstallContext->getContext());
+            // TODO: Implement database cleanup here if necessary
         }
     }
 }
