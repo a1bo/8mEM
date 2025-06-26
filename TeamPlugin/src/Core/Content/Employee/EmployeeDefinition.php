@@ -5,13 +5,13 @@ namespace TeamPlugin\Core\Content\Employee;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\PrimaryKey;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\Required;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\FkField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\IdField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\LongTextField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\OneToOneAssociationField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\StringField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
-use Shopware\Core\Framework\DataAbstractionLayer\Field\OneToOneAssociationField;
-use Shopware\Core\Framework\DataAbstractionLayer\Field\FkField;
-use Shopware\Core\Framework\DataAbstractionLayer\Field\BlobField;
-use Shopware\Core\Framework\DataAbstractionLayer\Field\LongTextField;
+use Shopware\Core\System\Media\MediaDefinition;
 
 class EmployeeDefinition extends EntityDefinition
 {
@@ -39,8 +39,10 @@ class EmployeeDefinition extends EntityDefinition
             new StringField('name', 'name'),
             new StringField('position', 'position'),
             new LongTextField('description', 'description'),
-            new BlobField('background_image', 'backgroundImage'),
-            new BlobField('person_image', 'personImage'),
+            (new FkField('background_image_id', 'backgroundImageId', MediaDefinition::class))->addFlags(new Required()),
+            new OneToOneAssociationField('backgroundImage', 'background_image_id', 'id', MediaDefinition::class, false),
+            (new FkField('person_image_id', 'personImageId', MediaDefinition::class))->addFlags(new Required()),
+            new OneToOneAssociationField('personImage', 'person_image_id', 'id', MediaDefinition::class, false),
         ]);
     }
 }
