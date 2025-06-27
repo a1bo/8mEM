@@ -13,6 +13,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Field\StringField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\TranslatedField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\LongTextField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\TranslationsAssociationField;
 
 class EmployeeDefinition extends EntityDefinition
 {
@@ -45,6 +46,7 @@ class EmployeeDefinition extends EntityDefinition
 
             new ManyToOneAssociationField('backgroundImage', 'background_image_id', MediaDefinition::class, 'id', false, 'id'),
             new ManyToOneAssociationField('personImage', 'person_image_id', MediaDefinition::class, 'id', false, 'id'),
+            new TranslationsAssociationField(EmployeeTranslationDefinition::class, 'team_employee_id'),
         ]);
     }
 
