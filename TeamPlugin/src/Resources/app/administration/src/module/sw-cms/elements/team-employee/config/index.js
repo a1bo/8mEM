@@ -10,18 +10,18 @@ Component.register('cms-element-team-employee-config', {
 
     data() {
         return {
-            employees: null,
+            employeeOptions: null,
             employeeRepository: null,
         };
     },
 
     computed: {
-        employeeIds: {
+        employees: {
             get() {
-                return this.element.config.employeeIds.value || [];
+                return this.element.config.employees.value || [];
             },
             set(value) {
-                this.element.config.employeeIds.value = value;
+                this.element.config.employees.value = value;
             }
         },
 
@@ -41,7 +41,7 @@ Component.register('cms-element-team-employee-config', {
             criteria.addSorting(Criteria.sort('position', 'ASC'));
 
             this.employeeRepository.search(criteria, Shopware.Context.api).then((result) => {
-                this.employees = result;
+                this.employeeOptions = result;
             });
         },
     }
