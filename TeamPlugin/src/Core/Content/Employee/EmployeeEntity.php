@@ -2,45 +2,40 @@
 
 namespace TeamPlugin\Core\Content\Employee;
 
+use Shopware\Core\Content\Media\MediaEntity;
 use Shopware\Core\Framework\DataAbstractionLayer\Entity;
-use Shopware\Core\System\Media\MediaEntity;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityCustomFieldsTrait;
+use Shopware\Core\Framework\DataAbstractionLayer\TranslationEntity;
 
 class EmployeeEntity extends Entity
 {
-    protected string $name;
-    protected string $position;
-    protected string $description;
+    use EntityCustomFieldsTrait;
+
+    protected ?string $position = null;
+    protected ?string $backgroundImageId = null;
     protected ?MediaEntity $backgroundImage = null;
+    protected ?string $personImageId = null;
     protected ?MediaEntity $personImage = null;
+    protected ?string $text = null;
 
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): void
-    {
-        $this->name = $name;
-    }
-
-    public function getPosition(): string
+    public function getPosition(): ?string
     {
         return $this->position;
     }
 
-    public function setPosition(string $position): void
+    public function setPosition(?string $position): void
     {
         $this->position = $position;
     }
 
-    public function getDescription(): string
+    public function getBackgroundImageId(): ?string
     {
-        return $this->description;
+        return $this->backgroundImageId;
     }
 
-    public function setDescription(string $description): void
+    public function setBackgroundImageId(?string $backgroundImageId): void
     {
-        $this->description = $description;
+        $this->backgroundImageId = $backgroundImageId;
     }
 
     public function getBackgroundImage(): ?MediaEntity
@@ -53,6 +48,16 @@ class EmployeeEntity extends Entity
         $this->backgroundImage = $backgroundImage;
     }
 
+    public function getPersonImageId(): ?string
+    {
+        return $this->personImageId;
+    }
+
+    public function setPersonImageId(?string $personImageId): void
+    {
+        $this->personImageId = $personImageId;
+    }
+
     public function getPersonImage(): ?MediaEntity
     {
         return $this->personImage;
@@ -61,5 +66,15 @@ class EmployeeEntity extends Entity
     public function setPersonImage(?MediaEntity $personImage): void
     {
         $this->personImage = $personImage;
+    }
+
+    public function getText(): ?string
+    {
+        return $this->text;
+    }
+
+    public function setText(?string $text): void
+    {
+        $this->text = $text;
     }
 }

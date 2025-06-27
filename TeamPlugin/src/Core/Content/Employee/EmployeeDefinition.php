@@ -2,16 +2,18 @@
 
 namespace TeamPlugin\Core\Content\Employee;
 
+use Shopware\Core\Content\Media\MediaDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\FkField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\PrimaryKey;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\Required;
-use Shopware\Core\Framework\DataAbstractionLayer\Field\FkField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\Translatable;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\IdField;
-use Shopware\Core\Framework\DataAbstractionLayer\Field\LongTextField;
-use Shopware\Core\Framework\DataAbstractionLayer\Field\OneToOneAssociationField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\ManyToOneAssociationField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\StringField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\TranslatedField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\LongTextField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
-use Shopware\Core\System\Media\MediaDefinition;
 
 class EmployeeDefinition extends EntityDefinition
 {
@@ -35,14 +37,19 @@ class EmployeeDefinition extends EntityDefinition
     protected function defineFields(): FieldCollection
     {
         return new FieldCollection([
-            (new IdField('id', 'id'))->addFlags(new Required(), new PrimaryKey()),
-            new StringField('name', 'name'),
-            new StringField('position', 'position'),
-            new LongTextField('description', 'description'),
-            (new FkField('background_image_id', 'backgroundImageId', MediaDefinition::class))->addFlags(new Required()),
-            new OneToOneAssociationField('backgroundImage', 'background_image_id', 'id', MediaDefinition::class, false),
-            (new FkField('person_image_id', 'personImageId', MediaDefinition::class))->addFlags(new Required()),
-            new OneToOneAssociationField('personImage', 'person_image_id', 'id', MediaDefinition::class, false),
+            (new IdField('id', 'id'))->addFlags(new PrimaryKey(), new Required()),
+            (new TranslatedField('position'))->addFlags(new Required()),
+            (new FkField('background_image_id', 'backgroundImageId', MediaDefinition::class)),
+            (new FkField('person_image_id', 'personImageId', MediaDefinition::class)),
+            (new TranslatedField('text')),
+
+            new ManyToOneAssociationField('backgroundImage', 'background_image_id', MediaDefinition::class, 'id', false),
+            new ManyToOneAssociationField('personImage', 'person_image_id', MediaDefinition::class, 'id', false),
         ]);
+    }
+
+    public function getTranslationDefinitionClass(): string
+    {
+        return EmployeeTranslationDefinition::class;
     }
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <data>
+        <team-employee-detail>
+            <sw-card-view>
+                <sw-card name="general" title="team-employee.detail.general">
+                    <sw-field name="position" label="team-employee.detail.position" />
+                    <team-employee-media-form name="backgroundImage" />
+                    <team-employee-media-form name="personImage" />
+                    <sw-text-editor name="text" label="team-employee.detail.text" />
+                </sw-card>
+            </sw-card-view>
+        </team-employee-detail>
+    </data>
+</root>

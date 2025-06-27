@@ -1,0 +1,43 @@
+{% raw %}<sw-page>
+    <template #smart-bar-header>
+        <h2>{{ $t('team-employee.general.mainMenuItemGeneral') }} &raquo; {{ employee.position }}</h2>
+    </template>
+
+    <template #smart-bar-actions>
+        <sw-button-process
+            :isLoading="isLoading"
+            :processSuccess="isSaveSuccessful"
+            variant="primary"
+            @process-finish="saveFinish"
+            @click="onSave">
+            {{ $t('team-employee.detail.save') }}
+        </sw-button-process>
+    </template>
+
+    <template #content>
+        <sw-card-view>
+            <sw-card :title="$t('team-employee.detail.general')">
+                <sw-field type="text" :label="$t('team-employee.detail.position')" v-model="employee.position"></sw-field>
+                <sw-text-editor :label="$t('team-employee.detail.text')" v-model="employee.text"></sw-text-editor>
+            </sw-card>
+            <sw-card :title="$t('team-employee.detail.images')">
+                <sw-media-upload-v2
+                    :uploadTag="employee.id"
+                    :source="employee.personImage"
+                    :label="$t('team-employee.detail.personImage')"
+                    @media-upload-remove-image="onRemovePersonImage"
+                    @media-upload-sidebar-open="onOpenPersonImage"
+                    @media-upload-successful="onPersonImageUpload"
+                ></sw-media-upload-v2>
+                <sw-media-upload-v2
+                    :uploadTag="employee.id"
+                    :source="employee.backgroundImage"
+                    :label="$t('team-employee.detail.backgroundImage')"
+                    @media-upload-remove-image="onRemoveBackgroundImage"
+                    @media-upload-sidebar-open="onOpenBackgroundImage"
+                    @media-upload-successful="onBackgroundImageUpload"
+                ></sw-media-upload-v2>
+            </sw-card>
+        </sw-card-view>
+    </template>
+</sw-page>{% endraw %}

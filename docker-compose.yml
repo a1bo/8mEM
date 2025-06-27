@@ -1,15 +1,18 @@
+version: '3'
+
 services:
   shop:
-    image: dockware/dev:latest
+    image: dockware/play:latest
     ports:
       - "80:80"
-      - "3307:3306"
-    environment:
-      - APP_ENV=dev
+      - "3306:3306"
+      - "22:22"
     volumes:
-      - shopware_db:/var/lib/mysql
-      - shopware_files:/var/www/html
-      - ./TeamPlugin:/var/www/html/custom/plugins/TeamPlugin
+      - "db_data:/var/lib/mysql"
+      - "./TeamPlugin:/var/www/html/custom/plugins/TeamPlugin"
+    environment:
+      - "XDEBUG_ENABLED=1"
+
 volumes:
-  shopware_db:
-  shopware_files:
+  db_data:
+    driver: local

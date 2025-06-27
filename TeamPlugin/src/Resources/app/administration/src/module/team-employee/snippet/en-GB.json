@@ -1,0 +1,20 @@
+{
+  "team-employee": {
+    "general": {
+      "mainMenuItemGeneral": "Team Employees",
+      "description": "Manage team employees"
+    },
+    "list": {
+      "createEmployee": "Create Employee",
+      "columnPosition": "Position",
+      "columnText": "Text"
+    },
+    "detail": {
+      "save": "Save",
+      "general": "General",
+      "position": "Position",
+      "text": "Text",
+      "errorTitle": "Error saving employee"
+    }
+  }
+}

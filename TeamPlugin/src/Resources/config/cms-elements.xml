@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<cms-elements xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="../../../../vendor/shopware/platform/src/Core/Content/Cms/
+                  cms-elements-1.0.xsd">
+
+    <cms-element name="team-employee">
+        <category>commerce</category>
+        <label>Team Employee</label>
+        <description>Team Employee Slider</description>
+        <component>cms-element-team-employee</component>
+        <preview-component>cms-element-team-employee-preview</preview-component>
+        <config-component>cms-element-team-employee-config</config-component>
+
+        <slots>
+            <slot type="entity" name="employees">
+                <config>
+                    <option name="label">Selected Employees</option>
+                    <option name="entity">team_employee</option>
+                </config>
+            </slot>
+        </slots>
+    </cms-element>
+</cms-elements>

@@ -1,0 +1,13 @@
+{% block team_employee_media_form %}
+    <sw-container>
+        <sw-media-upload-v2
+            variant="regular"
+            :uploadTag="mediaId"
+            :source="mediaItem"
+            :allowMultiSelect="false"
+            :isLoading="isLoading"
+            @media-upload="onImageUpload"
+            @media-remove="onRemoveImage"
+        ></sw-media-upload-v2>
+    </sw-container>
+{% endblock %}

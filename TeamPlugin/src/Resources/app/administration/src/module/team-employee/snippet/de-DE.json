@@ -1,0 +1,20 @@
+{
+  "team-employee": {
+    "general": {
+      "mainMenuItemGeneral": "Team Mitarbeiter",
+      "description": "Team Mitarbeiter verwalten"
+    },
+    "list": {
+      "createEmployee": "Mitarbeiter erstellen",
+      "columnPosition": "Position",
+      "columnText": "Text"
+    },
+    "detail": {
+      "save": "Speichern",
+      "general": "Allgemein",
+      "position": "Position",
+      "text": "Text",
+      "errorTitle": "Fehler beim Speichern des Mitarbeiters"
+    }
+  }
+}

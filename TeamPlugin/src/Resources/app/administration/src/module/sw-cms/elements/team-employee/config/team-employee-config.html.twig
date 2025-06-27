@@ -1,0 +1,13 @@
+{% block cms_element_team_employee_config %}
+    <sw-container>
+        <sw-entity-multi-select
+            label="Employees"
+            v-model="employeeIds"
+            :repository="employeeRepository"
+            :criteria="employeeCriteria"
+            value-field="id"
+            label-field="name"
+        >
+        </sw-entity-multi-select>
+    </sw-container>
+{% endblock %}

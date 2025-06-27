@@ -1,0 +1,18 @@
+{% block cms_element_team_employee %}
+    <div class="cms-element-team-employee" data-team-employee-slider="true">
+        {% for employee in element.data.employees %}
+            <div class="team-employee-slide">
+                {% if employee.backgroundImage %}
+                    <img src="{{ employee.backgroundImage.url }}" alt="{{ employee.position }}" class="team-employee-background-image">
+                {% endif %}
+                <div class="team-employee-content">
+                    {% if employee.personImage %}
+                        <img src="{{ employee.personImage.url }}" alt="{{ employee.position }}" class="team-employee-person-image">
+                    {% endif %}
+                    <h3 class="team-employee-position">{{ employee.position }}</h3>
+                    <div class="team-employee-text">{{ employee.text|raw }}</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

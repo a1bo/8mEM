@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <data>
+        <team-employee-list>
+            <sw-entity-listing>
+                <columns>
+                    <column name="position" label="team-employee.list.columnPosition" sortable="true" />
+                    <column name="text" label="team-employee.list.columnText" sortable="true" />
+                </columns>
+            </sw-entity-listing>
+        </team-employee-list>
+    </data>
+</root>

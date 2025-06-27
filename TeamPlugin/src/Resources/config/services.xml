@@ -1,13 +1,21 @@
 <?xml version="1.0" ?>
+
 <container xmlns="http://symfony.com/schema/dic/services"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
     <services>
-        <service id="TeamPlugin\Core\Content\Employee\EmployeeDefinition" />
-        <service id="TeamPlugin\Migration\Migration1682235151EmployeeTable" />
-        <service id="TeamPlugin\Core\Content\Cms\SalesChannel\CmsElement\CmsElementTeamResolver">
+        <service id="TeamPlugin\Core\Content\Employee\EmployeeDefinition">
+            <tag name="shopware.entity.definition" entity="team_employee" />
+        </service>
+
+        <service id="TeamPlugin\Core\Content\Employee\EmployeeTranslationDefinition">
+            <tag name="shopware.entity.definition" entity="team_employee_translation" />
+        </service>
+
+        <service id="TeamPlugin\Core\Content\Cms\SalesChannel\TeamEmployeeCmsElementResolver">
             <argument type="service" id="team_employee.repository"/>
-            <tag name="shopware.cms.data_resolver" />
+            <tag name="shopware.cms.sales_channel.cms_element_resolver"/>
         </service>
     </services>
 </container>

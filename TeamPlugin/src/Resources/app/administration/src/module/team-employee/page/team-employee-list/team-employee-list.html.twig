@@ -1,0 +1,31 @@
+{% raw %}<sw-page>
+    <template #smart-bar-header>
+        <h2>{{ $t('team-employee.general.mainMenuItemGeneral') }} <span v-if="!isLoading">({{ total }})</span></h2>
+    </template>
+
+    <template #smart-bar-actions>
+        <sw-button variant="primary" :routerLink="{ name: 'team.employee.create' }">
+            {{ $t('team-employee.list.createEmployee') }}
+        </sw-button>
+    </template>
+
+    <template #content>
+        <sw-entity-listing
+            v-if="employees"
+            :items="employees"
+            :repository="repository"
+            :showSelection="true"
+            :columns="columns"
+            :isLoading="isLoading"
+            detailRoute="team.employee.detail">
+
+            <template #column-name="{ item }">
+                <router-link :to="{ name: 'team.employee.detail', params: { id: item.id } }">
+                    <sw-media-preview-v2 :source="item.personImage"></sw-media-preview-v2>
+                    {{ item.name }}
+                </router-link>
+            </template>
+
+        </sw-entity-listing>
+    </template>
+</sw-page>{% endraw %}
