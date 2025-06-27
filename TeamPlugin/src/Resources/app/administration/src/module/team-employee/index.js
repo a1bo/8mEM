@@ -29,14 +29,14 @@ Module.register('team-employee', {
             component: 'team-plugin-employee-detail',
             path: 'detail/:id',
             meta: {
-                parentPath: 'team.plugin.employee.list'
+                parentPath: 'team.employee.list'
             }
         },
         create: {
             component: 'team-plugin-employee-detail',
             path: 'create',
             meta: {
-                parentPath: 'team.plugin.employee.list'
+                parentPath: 'team.employee.list'
             }
         },
     },
@@ -44,7 +44,7 @@ Module.register('team-employee', {
     navigation: [{
         label: 'team-employee.general.mainMenuItemGeneral',
         color: '#ff3e6d',
-        path: 'team.plugin.employee.list',
+        path: 'team.employee.list',
         icon: 'default-action-settings',
         position: 100,
         parent: 'sw-content',

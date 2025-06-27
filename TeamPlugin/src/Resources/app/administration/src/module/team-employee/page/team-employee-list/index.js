@@ -29,7 +29,7 @@ Component.register('team-plugin-employee-list', {
             return [{
                 property: 'position',
                 label: this.$t('team-employee.list.columnPosition'),
-                routerLink: 'team.plugin.employee.detail',
+                routerLink: 'team.employee.detail',
                 inlineEdit: 'string',
                 allowResize: true,
                 primary: true
