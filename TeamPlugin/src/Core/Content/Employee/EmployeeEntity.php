@@ -11,12 +11,23 @@ class EmployeeEntity extends Entity
 {
     use EntityCustomFieldsTrait;
 
+    protected ?string $name = null;
     protected ?string $position = null;
     protected ?string $backgroundImageId = null;
     protected ?MediaEntity $backgroundImage = null;
     protected ?string $personImageId = null;
     protected ?MediaEntity $personImage = null;
     protected ?string $text = null;
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(?string $name): void
+    {
+        $this->name = $name;
+    }
 
     public function getPosition(): ?string
     {

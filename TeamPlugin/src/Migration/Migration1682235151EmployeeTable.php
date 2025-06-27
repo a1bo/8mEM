@@ -36,6 +36,7 @@ SQL;
 CREATE TABLE IF NOT EXISTS `team_employee_translation` (
     `team_employee_id` BINARY(16) NOT NULL,
     `language_id` BINARY(16) NOT NULL,
+    `name` VARCHAR(255) NULL,
     `position` VARCHAR(255) NULL,
     `text` LONGTEXT NULL,
     `created_at` DATETIME(3) NOT NULL,
