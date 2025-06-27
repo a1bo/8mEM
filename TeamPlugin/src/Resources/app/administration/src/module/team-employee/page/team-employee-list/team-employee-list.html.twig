@@ -34,4 +34,10 @@
 
         </sw-entity-listing>
     </template>
+    <sw-confirm-modal
+        ref="confirmDeleteModal"
+        :title="$t('team-employee.list.deleteEmployee')"
+        :text="employeeToDelete ? employeeToDelete.position : ''"
+        @confirm="onConfirmDelete"
+        @cancel="onCancelDelete"/>
 </sw-page>{% endraw %}
