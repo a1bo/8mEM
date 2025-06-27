@@ -7,7 +7,6 @@ use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\FkField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\PrimaryKey;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\Required;
-use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\Translatable;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\IdField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\ManyToOneAssociationField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\StringField;
@@ -38,13 +37,14 @@ class EmployeeDefinition extends EntityDefinition
     {
         return new FieldCollection([
             (new IdField('id', 'id'))->addFlags(new PrimaryKey(), new Required()),
+            (new TranslatedField('name'))->addFlags(new Required()),
             (new TranslatedField('position'))->addFlags(new Required()),
             (new FkField('background_image_id', 'backgroundImageId', MediaDefinition::class)),
             (new FkField('person_image_id', 'personImageId', MediaDefinition::class)),
             (new TranslatedField('text')),
 
-            new ManyToOneAssociationField('backgroundImage', 'background_image_id', MediaDefinition::class, 'id', false),
-            new ManyToOneAssociationField('personImage', 'person_image_id', MediaDefinition::class, 'id', false),
+            new ManyToOneAssociationField('backgroundImage', 'background_image_id', MediaDefinition::class, 'id', false, 'id'),
+            new ManyToOneAssociationField('personImage', 'person_image_id', MediaDefinition::class, 'id', false, 'id'),
         ]);
     }
 

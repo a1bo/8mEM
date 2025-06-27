@@ -55,6 +55,26 @@ Component.register('team-plugin-employee-list', {
                     this.total = result.total;
                     this.isLoading = false;
                 });
+        },
+        async onDeleteEmployee(employee) {
+            const confirmed = await this.$swal({
+                title: this.$t('team-employee.list.deleteEmployee'),
+                text: employee.position,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: this.$t('team-employee.list.deleteEmployee'),
+                cancelButtonText: this.$t('global.default.cancel')
+            });
+            if (confirmed.isConfirmed) {
+                this.isLoading = true;
+                this.repository.delete(employee.id, Shopware.Context.api)
+                    .then(() => {
+                        this.getList();
+                    })
+                    .finally(() => {
+                        this.isLoading = false;
+                    });
+            }
         }
     }
 });

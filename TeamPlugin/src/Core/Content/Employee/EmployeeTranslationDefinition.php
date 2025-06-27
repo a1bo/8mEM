@@ -4,6 +4,7 @@ namespace TeamPlugin\Core\Content\Employee;
 
 use Shopware\Core\Framework\DataAbstractionLayer\EntityTranslationDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\LongTextField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\StringField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
 
 class EmployeeTranslationDefinition extends EntityTranslationDefinition
@@ -33,6 +34,7 @@ class EmployeeTranslationDefinition extends EntityTranslationDefinition
     protected function defineFields(): FieldCollection
     {
         return new FieldCollection([
+            new StringField('name', 'name'), // Added missing name field
             new StringField('position', 'position'),
             new LongTextField('text', 'text'),
         ]);

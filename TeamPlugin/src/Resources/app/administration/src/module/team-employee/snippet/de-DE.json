@@ -7,7 +7,8 @@
     "list": {
       "createEmployee": "Mitarbeiter erstellen",
       "columnPosition": "Position",
-      "columnText": "Text"
+      "columnText": "Text",
+      "deleteEmployee": "Löschen"
     },
     "detail": {
       "save": "Speichern",

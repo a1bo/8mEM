@@ -26,6 +26,12 @@
                 </router-link>
             </template>
 
+            <template #actions="{ item }">
+                <sw-button variant="danger" size="small" @click="onDeleteEmployee(item)">
+                    {{ $t('team-employee.list.deleteEmployee') }}
+                </sw-button>
+            </template>
+
         </sw-entity-listing>
     </template>
 </sw-page>{% endraw %}
