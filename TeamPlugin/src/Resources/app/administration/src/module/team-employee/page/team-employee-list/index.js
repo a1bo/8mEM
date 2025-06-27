@@ -15,6 +15,7 @@ Component.register('team-plugin-employee-list', {
             employees: [],
             repository: null,
             isLoading: false,
+            employeeToDelete: null,
         };
     },
 
@@ -56,25 +57,29 @@ Component.register('team-plugin-employee-list', {
                     this.isLoading = false;
                 });
         },
-        async onDeleteEmployee(employee) {
-            const confirmed = await this.$swal({
-                title: this.$t('team-employee.list.deleteEmployee'),
-                text: employee.position,
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: this.$t('team-employee.list.deleteEmployee'),
-                cancelButtonText: this.$t('global.default.cancel')
-            });
-            if (confirmed.isConfirmed) {
-                this.isLoading = true;
-                this.repository.delete(employee.id, Shopware.Context.api)
-                    .then(() => {
-                        this.getList();
-                    })
-                    .finally(() => {
-                        this.isLoading = false;
-                    });
+        onDeleteEmployee(employee) {
+            this.employeeToDelete = employee;
+            this.$refs.confirmDeleteModal.open();
+        },
+
+        onConfirmDelete() {
+            if (!this.employeeToDelete) {
+                return;
             }
+
+            this.isLoading = true;
+            this.repository.delete(this.employeeToDelete.id, Shopware.Context.api)
+                .then(() => {
+                    this.getList();
+                })
+                .finally(() => {
+                    this.isLoading = false;
+                    this.employeeToDelete = null;
+                });
+        },
+
+        onCancelDelete() {
+            this.employeeToDelete = null;
         }
     }
 });
