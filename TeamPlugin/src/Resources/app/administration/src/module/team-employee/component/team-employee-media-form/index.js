@@ -1,8 +1,10 @@
+import template from './team-employee-media-form.html.twig';
+
 const { Component } = Shopware;
 const { Criteria } = Shopware.Data;
 
 Component.register('team-employee-media-form', {
-    template: './team-employee-media-form.html.twig',
+    template,
 
     props: {
         mediaId: {
